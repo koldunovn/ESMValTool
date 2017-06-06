@@ -29,7 +29,7 @@ This namelist is part of the ESMValTool
 <max_data_filesize type="integer">  100                       </max_data_filesize>
 <max_data_blocksize type="integer"> 500                       </max_data_blocksize>
 <output_file_type>                  PS                        </output_file_type>
-<verbosity  type="integer">         1                         </verbosity>
+<verbosity  type="integer">         4                         </verbosity>
 <debuginfo type="boolean">          False                     </debuginfo>
 <exit_on_warning  type="boolean">   True                      </exit_on_warning>
 </GLOBAL>
@@ -37,7 +37,8 @@ This namelist is part of the ESMValTool
 
 
 <MODELS>
-<model> CMIP5_DKRZ MPI-M MPI-ESM-MR  Omon historical r1i1p1 ocean  2004 2005 @{MODELPATH2} </model>
+    <model> CMIP5_DKRZ MPI-M MPI-ESM-MR  Omon historical r1i1p1 ocean  2004 2005 @{MODELPATH2} </model>
+    <model> CMIP5_DKRZ MPI-M MPI-ESM-LR  Omon historical r1i1p1 ocean  2004 2005 @{MODELPATH2} </model>
 </MODELS>
 
 
