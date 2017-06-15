@@ -44,7 +44,7 @@ This namelist is part of the ESMValTool
     <model> CMIP5_DKRZ CMCC CMCC-CM Omon historical r1i1p1 ocean  2004 2005 @{MODELPATH2} </model>
     <model> CMIP5_DKRZ CSIRO-BOM ACCESS1-3 Omon historical r1i1p1 ocean  2004 2005 @{MODELPATH2} </model>
     <model> CMIP5_DKRZ CSIRO-BOM ACCESS1-0 Omon historical r1i1p1 ocean  2004 2005 @{MODELPATH2} </model>
-    <model> CMIP5_DKRZ CSIRO-BOM CSIRO-Mk3-6-0 Omon historical r1i1p1 ocean  2004 2005 @{MODELPATH2} </model>
+    <model> CMIP5_DKRZ CSIRO-QCCCE CSIRO-Mk3-6-0 Omon historical r1i1p1 ocean  2004 2005 @{MODELPATH2} </model>
     <model> CMIP5_DKRZ ICHEC EC-EARTH Omon historical r1i1p1 ocean  2004 2005 @{MODELPATH2} </model>
 
 </MODELS>

@@ -64,7 +64,7 @@ def main(project_info):
     for mmodel in model_filenames:
         print(mmodel)
         datafile = Dataset(model_filenames[mmodel])
-        lon = datafile.variables['lon'][:]-180.
+        lon = datafile.variables['lon'][:].
         lat = datafile.variables['lat'][:]
         lev = datafile.variables['lev'][:]
         if lon.ndim == 2:
@@ -72,12 +72,13 @@ def main(project_info):
         elif lon.ndim == 1:
             lon2d, lat2d = np.meshgrid(lon, lat)
 
-        
-        indi, indj = np.where((lon2d>-60) & (lon2d<100) & (lat2d>80))
-        indi2, indj2 = np.where((lon2d>100) & (lon2d<140) & (lat2d>66))
+        indi, indj = np.where((lon2d>300)   & (lat2d>80))
+        indi2, indj2 = np.where((lon2d<100) & (lat2d>80))
+        indi3, indj3 = np.where((lon2d>100) & (lon2d<140) & (lat2d>66))
 
-        indexesi = np.hstack((indi, indi2))
-        indexesj = np.hstack((indj, indj2))
+        indexesi = np.hstack((indi, indi2, indi3))
+        indexesj = np.hstack((indj, indj2, indj3))
+
 
         #print(lon[indexesi, indexesj])
         #print(lev)
