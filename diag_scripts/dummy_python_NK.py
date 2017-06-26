@@ -64,13 +64,15 @@ def main(project_info):
     for mmodel in model_filenames:
         print(mmodel)
         datafile = Dataset(model_filenames[mmodel])
-        lon = datafile.variables['lon'][:].
+        lon = datafile.variables['lon'][:]
         lat = datafile.variables['lat'][:]
         lev = datafile.variables['lev'][:]
         if lon.ndim == 2:
             lon2d, lat2d = lon, lat
         elif lon.ndim == 1:
             lon2d, lat2d = np.meshgrid(lon, lat)
+
+        lev_limit = lev[lev<=1500].shape[0]+1
 
         indi, indj = np.where((lon2d>300)   & (lat2d>80))
         indi2, indj2 = np.where((lon2d<100) & (lat2d>80))
@@ -79,13 +81,13 @@ def main(project_info):
         indexesi = np.hstack((indi, indi2, indi3))
         indexesj = np.hstack((indj, indj2, indj3))
 
-
+        series_lenght = datafile.variables['thetao'].shape[0]
         #print(lon[indexesi, indexesj])
         #print(lev)
-        oce_kpp_euro = np.zeros((lev[0:28].shape[0], 24))
-        for mon in range(24):
+        oce_kpp_euro = np.zeros((lev[0:lev_limit].shape[0], series_lenght))
+        for mon in range(series_lenght):
             #print(mon)
-            for ind, depth in enumerate(lev[0:28]):
+            for ind, depth in enumerate(lev[0:lev_limit]):
                 level_pp = datafile.variables['thetao'][mon, ind, :, :]
                 oce_kpp_euro[ind,mon] = np.nanmean(level_pp[indexesi, indexesj])
         ofilename = os.path.join(diagworkdir, 'arctic_ocean_eurasian_basin_hof_temp_{}'.format(mmodel))
@@ -119,8 +121,10 @@ def main(project_info):
 
         datafile = Dataset(model_filenames[mmodel])
         lev = datafile.variables['lev'][:]
+        lev_limit = lev[lev<=1500].shape[0]+1
+        series_lenght = datafile.variables['thetao'].shape[0]
 
-        months,depth = np.meshgrid(range(24), lev[0:28])
+        months,depth = np.meshgrid(range(series_lenght), lev[0:lev_limit])
         plt.subplot(nrows,ncols,nplot)
         cmap = cm.Spectral_r
         plt.contourf(months, depth, hofdata-273.15, cmap=cmap, 
@@ -129,7 +133,9 @@ def main(project_info):
         plt.yticks(size=15)
         #plt.xlabel("years", size=15)
         plt.ylabel('m', size=15, rotation='horizontal')
-        plt.gca().invert_yaxis()
+        plt.ylim(1500, 0)
+        #plt.gca().invert_yaxis()
+
         cb = plt.colorbar(pad =0.01)
         cb.set_label('$^{\circ}$C', rotation='horizontal', size=15)
         # cb.set_ticks(size=15)
