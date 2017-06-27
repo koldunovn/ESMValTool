@@ -47,6 +47,13 @@ This namelist is part of the ESMValTool
     <model> CMIP5_DKRZ CSIRO-QCCCE CSIRO-Mk3-6-0 Omon historical r1i1p1 ocean  2000 2005 @{MODELPATH2} </model>
      <model> CMIP5_DKRZ IPSL IPSL-CM5A-LR Omon historical r1i1p1 ocean  2000 2005 @{MODELPATH2} </model>
       <model> CMIP5_DKRZ IPSL IPSL-CM5A-MR Omon historical r1i1p1 ocean  2000 2005 @{MODELPATH2} </model>
+      <model> CMIP5_DKRZ LASG-CESS FGOALS-g2  Omon historical r1i1p1 ocean  2000 2005 @{MODELPATH2} </model>
+      <model> CMIP5_DKRZ MOHC HadCM3 Omon historical r1i1p1 ocean  2000 2005 @{MODELPATH2} </model>
+      <model> CMIP5_DKRZ MOHC HadGEM2-ES Omon historical r1i1p1 ocean  2000 2005 @{MODELPATH2} </model>
+      <model> CMIP5_DKRZ  MRI MRI-CGCM3 Omon historical r1i1p1 ocean  2000 2005 @{MODELPATH2} </model>
+      <model> CMIP5_DKRZ  MRI MRI-ESM1 Omon historical r1i1p1 ocean  2000 2005 @{MODELPATH2} </model>
+      <model> CMIP5_DKRZ  NCAR CCSM4 Omon historical r1i1p1 ocean  2000 2005 @{MODELPATH2} </model>
+      
 
 </MODELS>
 

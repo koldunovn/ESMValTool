@@ -1545,6 +1545,7 @@ class CMIP5_DKRZ(MiKlip):
                                     msd["ensemble"])
         list_versions = glob.glob(version_path + '/*')
         list_versions.sort()
+        print(list_versions)
         version = os.path.basename(list_versions[-1])
 
         indir = os.path.join(msd["dir"],
@@ -1601,6 +1602,7 @@ class CMIP5_DKRZ(MiKlip):
                                     'fx',
                                     'r0i0p0')
         list_versions = glob.glob(version_path + '/*')
+        print(list_versions)
         list_versions.sort()
         version = os.path.basename(list_versions[-1])
 
