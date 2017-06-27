@@ -1508,7 +1508,8 @@ class CMIP5_DKRZ(MiKlip):
                                  "start_year",
                                  "end_year",
                                  "dir"]
-
+        self.basename = "CMIP5"
+    
     def get_cf_infile(self, project_info, model, field, variable, mip, exp):
         """ @brief Returns the path to the input file used in reformat
             @param project_info Current namelist in dictionary format
