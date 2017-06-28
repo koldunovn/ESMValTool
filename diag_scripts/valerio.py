@@ -57,6 +57,13 @@ def main(project_info):
     #print(mask)
       
     print('Hello, here is the dummy routine from the direct python interface!')
+    fix_files = {}
+    for model in project_info['MODELS']:
+        currProject = getattr(projects, model.split_entries()[0])()
+        model_name = currProject.get_model_name(model)
+        fix_files[model_name] = currProject.get_cf_lmaskfile(project_info,model)
+    print(fix_files)
+    
 
     # create instance of a wrapper that allows easy access to data
     #E = ESMValProject(project_info)
