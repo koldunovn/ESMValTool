@@ -37,12 +37,17 @@ This namelist is part of the ESMValTool
 
 
 <MODELS>
+    <model> CMIP5_DKRZ MPI-M MPI-ESM-LR  Amon historical r1i1p1 atmos  2004 2005 @{MODELPATH2} </model>
     <model> CMIP5_DKRZ MPI-M MPI-ESM-MR  Amon historical r1i1p1 atmos  2004 2005 @{MODELPATH2} </model>
 
     
 
 </MODELS>
 
+<AUXILIARIES>
+    <fx_file id="sftlf_MPI-ESM-LR">     /work/kd0956/CMIP5/data/cmip5/output1/MPI-M/MPI-ESM-LR/historical/fx/atmos/fx/r0i0p0/v20111006/sftlf/sftlf_fx_MPI-ESM-LR_historical_r0i0p0.nc    </fx_file>
+
+</AUXILIARIES>
 
 <DIAGNOSTICS>
 
@@ -50,7 +55,18 @@ This namelist is part of the ESMValTool
     <description>  some minimum example using python for diagnostic from a direct script </description>
     <variable_def_dir>               ./variable_defs/      </variable_def_dir>
     <variable>                        hfls                  </variable>
-    <field_type>                      T3M                  </field_type>
+    <variable>                        pr                  </variable>
+   <!-- <variable>                        prsn                </variable> -->
+      <variable>rlds</variable>
+<variable>rlus</variable>
+<variable>rlut</variable>
+<variable>rsds</variable>
+<variable>rsus</variable>
+<!-- <variable>rsdt</variable> -->
+<variable>rsut</variable>
+<!-- <variable>sftlf</variable> -->
+<variable>ts</variable>
+    <field_type>                      T2M                  </field_type>
     <diag_script cfg="none_yet.py">   valerio.py      </diag_script>
 
     <launcher_arguments>    [('execute_as_shell', False)]  </launcher_arguments>

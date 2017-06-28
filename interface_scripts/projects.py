@@ -1546,7 +1546,6 @@ class CMIP5_DKRZ(MiKlip):
                                     msd["ensemble"])
         list_versions = glob.glob(version_path + '/*')
         list_versions.sort()
-        print(list_versions)
         version = os.path.basename(list_versions[-1])
 
         indir = os.path.join(msd["dir"],
@@ -1559,8 +1558,7 @@ class CMIP5_DKRZ(MiKlip):
                              msd["ensemble"],
                              version,
                              variable)
-        print(indir)
-
+        
         infile = "_".join([variable,
                            msd["mip"],
                            msd["name"],
@@ -1603,7 +1601,7 @@ class CMIP5_DKRZ(MiKlip):
                                     'fx',
                                     'r0i0p0')
         list_versions = glob.glob(version_path + '/*')
-        print(list_versions)
+        
         list_versions.sort()
         version = os.path.basename(list_versions[-1])
 
@@ -1619,6 +1617,53 @@ class CMIP5_DKRZ(MiKlip):
                                'areacello')
 
         return os.path.join(areadir, areafile)
+        
+    def get_cf_lmaskfile(self, project_info, model):
+        """ @brief Returns the path to the sftlf file used for masking
+                   land variables (regular grid)
+            @param project_info Current namelist in dictionary format
+            @param model One of the <model>-tags in the XML namelist file
+            @return A string (maskfile path)
+            This function looks for the areafile of the ocean grid
+        """
+
+        # msd = model_section_dictionary
+        
+        msd = self.get_model_sections(model)
+        
+        maskfile = 'sftlf_fx_' + msd["name"] + "_" + msd["experiment"] \
+            + "_r0i0p0.nc"
+                # Will sellect the newest version
+        
+        version_path = os.path.join(msd["dir"],
+                                    msd["institute"],
+                                    msd["name"],
+                                    msd["experiment"],
+                                    'fx',
+                                    'atmos',
+                                    'fx',
+                                    'r0i0p0')
+        list_versions = glob.glob(version_path + '/*')
+        
+        list_versions.sort()
+        version = os.path.basename(list_versions[-1])
+        
+        
+        
+        maskdir = os.path.join(msd["dir"],
+                               msd["institute"],
+                               msd["name"],
+                               msd["experiment"],
+                               'fx',
+                               'atmos',
+                               'fx',
+                               'r0i0p0',
+                               version,
+                               'sftlf')
+
+
+
+        return os.path.join(maskdir, maskfile)
 
 
 class O3_Cionni(Project):

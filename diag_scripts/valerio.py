@@ -41,15 +41,20 @@ def main(project_info):
     diag_script = E.get_diag_script_name()
     ifile_dict = E.get_raw_inputfile()
     workdir    = E.get_work_dir()
-
+    #mask       = E.get_cf_lmaskfile()
+    #print(currProject)
     print(config_file)
     print(plotdir)
     print(workdir)
     print(verbosity)
     print(plot_type)
     print(diag_script)
+    print('ifile\n')
     print(ifile_dict)
-    print(project_info)
+    print('project_info\n')
+    #print(project_info['AUXILIARIES']['FX_files'].fx_files['sftlf_MPI-ESM-LR'].get_fullpath())
+    #print(project_info[''])
+    #print(mask)
       
     print('Hello, here is the dummy routine from the direct python interface!')
 
@@ -67,4 +72,7 @@ def main(project_info):
     print(dir(E))
 
     print('')
+    
+    #return(project_info)
+   
 
