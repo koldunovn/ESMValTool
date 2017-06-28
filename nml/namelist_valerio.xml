@@ -37,25 +37,9 @@ This namelist is part of the ESMValTool
 
 
 <MODELS>
-    <model> CMIP5_DKRZ MPI-M MPI-ESM-MR  Omon historical r1i1p1 ocean  1990 2005 @{MODELPATH2} </model>
-    <!--
-    <model> CMIP5_DKRZ MPI-M MPI-ESM-LR  Omon historical r1i1p1 ocean  1990 2005 @{MODELPATH2} </model>
-    <model> CMIP5_DKRZ NCAR CCSM4 Omon historical r1i1p1 ocean  1990 2005 @{MODELPATH2} </model>
-    <model> CMIP5_DKRZ CCCma CanESM2 Omon historical r1i1p1 ocean  1990 2005 @{MODELPATH2} </model>
-    <model> CMIP5_DKRZ CMCC CMCC-CM Omon historical r1i1p1 ocean  1990 2005 @{MODELPATH2} </model>
-    <model> CMIP5_DKRZ CSIRO-BOM ACCESS1-3 Omon historical r1i1p1 ocean  1990 2005 @{MODELPATH2} </model>
-    <model> CMIP5_DKRZ CSIRO-BOM ACCESS1-0 Omon historical r1i1p1 ocean  1990 2005 @{MODELPATH2} </model>
-    <model> CMIP5_DKRZ CSIRO-QCCCE CSIRO-Mk3-6-0 Omon historical r1i1p1 ocean  1990 2005 @{MODELPATH2} </model>
-     <model> CMIP5_DKRZ IPSL IPSL-CM5A-LR Omon historical r1i1p1 ocean  1990 2005 @{MODELPATH2} </model>
-      <model> CMIP5_DKRZ IPSL IPSL-CM5A-MR Omon historical r1i1p1 ocean  1990 2005 @{MODELPATH2} </model>
-      <model> CMIP5_DKRZ LASG-CESS FGOALS-g2  Omon historical r1i1p1 ocean  1990 2005 @{MODELPATH2} </model>
-      <model> CMIP5_DKRZ MOHC HadCM3 Omon historical r1i1p1 ocean  1990 2005 @{MODELPATH2} </model>
-      <model> CMIP5_DKRZ MOHC HadGEM2-ES Omon historical r1i1p1 ocean  1990 2005 @{MODELPATH2} </model>
-      <model> CMIP5_DKRZ  MRI MRI-CGCM3 Omon historical r1i1p1 ocean  1990 2005 @{MODELPATH2} </model>
-      <model> CMIP5_DKRZ  MRI MRI-ESM1 Omon historical r1i1p1 ocean  1990 2005 @{MODELPATH2} </model>
-      <model> CMIP5_DKRZ  NCAR CCSM4 Omon historical r1i1p1 ocean  1990 2005 @{MODELPATH2} </model>
-      -->
-      
+    <model> CMIP5_DKRZ MPI-M MPI-ESM-MR  Amon historical r1i1p1 atmos  2004 2005 @{MODELPATH2} </model>
+
+    
 
 </MODELS>
 
@@ -65,9 +49,9 @@ This namelist is part of the ESMValTool
 <diag>
     <description>  some minimum example using python for diagnostic from a direct script </description>
     <variable_def_dir>               ./variable_defs/      </variable_def_dir>
-    <variable>                        thetao                  </variable>
+    <variable>                        hfls                  </variable>
     <field_type>                      T3M                  </field_type>
-    <diag_script cfg="none_yet.py">   dummy_python_NK.py      </diag_script>
+    <diag_script cfg="none_yet.py">   valerio.py      </diag_script>
 
     <launcher_arguments>    [('execute_as_shell', False)]  </launcher_arguments>
 </diag>

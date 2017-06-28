@@ -25,6 +25,7 @@ mpl.use('Agg')
 import matplotlib.pylab as plt
 import math
 from matplotlib import cm
+from netCDF4 import num2date
 
 print(projects)
 
@@ -42,8 +43,8 @@ def main(project_info):
     workdir    = E.get_work_dir()
 
     #print(config_file)
-    print(plotdir)
-    print(workdir)
+    #print(plotdir)
+    #print(workdir)
     #print(verbosity)
     #print(plot_type)
     #print(diag_script)
@@ -112,6 +113,7 @@ def main(project_info):
     nrows = int(nrows)
     nplot = 1
     plt.figure(figsize=(8*ncols,2*nrows*ncols))
+    
     for mmodel in model_filenames:
         print('Plotting')
         print(mmodel)
@@ -120,9 +122,11 @@ def main(project_info):
         hofdata = np.load(ifilename)
 
         datafile = Dataset(model_filenames[mmodel])
+        
         lev = datafile.variables['lev'][:]
         lev_limit = lev[lev<=1500].shape[0]+1
         series_lenght = datafile.variables['thetao'].shape[0]
+        time = num2date(datafile.variables['time'][:],datafile.variables['time'].units)
 
         months,depth = np.meshgrid(range(series_lenght), lev[0:lev_limit])
         plt.subplot(nrows,ncols,nplot)
@@ -147,7 +151,7 @@ def main(project_info):
     plt.savefig(pltoutname, dpi=100)
 
 
-    print(model_filenames)
+#    print(model_filenames)
 
     print('Do something here!')
     print('ENDED SUCESSFULLY!!')
