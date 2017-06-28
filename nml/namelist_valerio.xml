@@ -59,9 +59,8 @@ This namelist is part of the ESMValTool
     <variable>                        rsds                 </variable>
     <variable>                        rsus                 </variable>
     <variable>                        rsdt                 </variable> 
-<variable>rsut</variable>
-<!-- <variable>sftlf</variable> -->
-<variable>ts</variable>
+    <variable>                        rsut                 </variable>
+    <variable>                        ts                   </variable>
     <field_type>                      T2M                  </field_type>
     <diag_script cfg="none_yet.py">   valerio.py      </diag_script>
 
